@@ -54,7 +54,13 @@ def send_weather_update(clients):
             f"Sunset: {sunset}\n"
             f"Have a great day, {client['name']}!\n\n\n"
         }
-
         send_text_message(weather_info, client['number'])
 
-send_weather_update(get_clients())
+def main():
+    schedule.every().day.at("15:40").do(send_weather_update, get_clients())
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+if __name__ == "__main__":
+    main()
