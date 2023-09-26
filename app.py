@@ -11,9 +11,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-#test
-#test2
-#test3
-#test4
-#test5
-#test6
