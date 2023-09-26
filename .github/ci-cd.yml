@@ -1,9 +1,15 @@
-name: Feature CI/CD Pipeline
+name: Python CICD Pipeline
 
 on:
   push:
     branches:
-      - master  # Adjust to your main branch name
+      - master # enables cicd pipeline when a push is made to the master
+  pull_request:
+    branches:
+      - features # must be in the features branch to trigger the CICD pipeline
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -11,31 +17,25 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.11  # Specify your desired Python version
+          python-version: 3.11
+          venv: venv
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt  # Adjust the command based on your requirements.txt file
-          # Optionally, you can also set up a virtual environment here if needed
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Build and test
+      - name: Lint with flake8
         run: |
-          # Add build and test commands specific to your Python project
-          # For example:
-          # python manage.py test
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-      - name: Deploy to staging (if tests pass)
-        if: success()
+      - name: Test with pytest
         run: |
-          # Add deployment commands to a staging environment if applicable
-
-      - name: Merge to main (if tests pass)
-        if: success()
-        run: |
-          # Merge the feature branch into the main branch if tests pass
-          # You may need to customize this based on your version control system
+          pytest
