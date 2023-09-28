@@ -1,6 +1,6 @@
 import os
 import dotenv
-from twilio.rest import Client as TwilioClient
+# from twilio.rest import Client as TwilioClient
 
 dotenv.load_dotenv()
 

@@ -1,6 +1,6 @@
-from config.supabase_config import *
-from src.twilio import *
-from src.quotes import *
+# from config.supabase_config import *
+# from src.twilio import *
+# from src.quotes import *
 import requests 
 
 def get_clients() -> list:
