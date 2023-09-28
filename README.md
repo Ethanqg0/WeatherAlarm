@@ -20,20 +20,17 @@ Follow these steps to set up and run WeatherAlarm:
 1. Clone the Repository: Begin by cloning this repository to your local machine using your preferred Git client.
 
 2. Install Dependencies: Navigate to the cloned repository and install the necessary dependencies.
-'''
-  bash
-  Copy code
-  npm install
-'''
 
-4. Configuration: Set up configuration files to specify API keys and user preferences. Ensure Twilio API credentials are properly configured.
+3. Configuration: Set up configuration files to specify API keys and user preferences. Ensure Twilio API credentials are properly configured.
 
-5. Customization: Customize the messages, weather preferences, and motivational quotes based on user preferences.
+4. Customization: Customize the messages, weather preferences, and motivational quotes based on user preferences.
 
-Run the Application: Execute the application to send morning messages to users at 8 AM.
+5. Run the Application: Execute the application to send morning messages to users at 8 AM.
+```
   bash
   Copy code
   npm start
+```
 
 ## Usage
 WeatherAlarm is designed to be simple and user-friendly. Users will receive a personalized morning message at 8 AM containing weather information, air quality data, and a motivational quote. They can respond with specific preferences and receive tailored messages accordingly.
