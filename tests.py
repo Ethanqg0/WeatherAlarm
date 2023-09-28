@@ -1,6 +1,19 @@
 # Import your grade_aqi function at the beginning of your test file
 
 from src.weatherAPI import grade_aqi
+from dotenv import load_dotenv
+import pytest
+import os
+
+load_dotenv()
+
+@pytest.fixture(autouse=True) #autoamtically uses the fixture
+def load_environmental_variables(monkeypatch):
+    load_dotenv('.env.test')
+
+    # Set the environment variables for the tests
+    monkeypatch.setenv('SUPABASE_URL', os.getenv('SUPABASE_URL'))
+    monkeypatch.setenv('OTHER_VARIABLE', os.getenv('OTHER_VARIABLE'))
 
 def test_grade_aqi_good():
     result = grade_aqi(30)
