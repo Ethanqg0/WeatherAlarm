@@ -2,6 +2,7 @@
 
 from src.weatherAPI import grade_aqi
 from dotenv import load_dotenv
+from config.supabase_config import *
 import pytest
 import os
 
