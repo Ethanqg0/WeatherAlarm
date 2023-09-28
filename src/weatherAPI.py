@@ -29,19 +29,15 @@ def find_max_aqi(data):
     return aqi
 
 def grade_aqi(aqi):
-    if aqi <= 50:
-        return "- Great!"
-    elif aqi <= 100:
-        return "- Moderate!"
-    elif aqi <= 150:
-        return "- Unhealthy for Sensitive Groups!"
-    elif aqi <= 200:
-        return "- Unhealthy!"
-    elif aqi <= 300:
-        return "- Very Unhealthy!"
-    else:
-        return "- Hazardous!"
-    
+    switch = {
+        aqi <= 50: "- Great!",
+        aqi <= 100: "- Moderate!",
+        aqi <= 150: "- Unhealthy for Sensitive Groups!",
+        aqi <= 200: "- Unhealthy!",
+        aqi <= 300: "- Very Unhealthy!",
+        True: "- Hazardous!"
+    }
+    return switch[True]
 
 def send_weather_update(clients):
     for client in clients:
