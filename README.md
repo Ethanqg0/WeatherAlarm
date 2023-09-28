@@ -29,9 +29,7 @@ Follow these steps to set up and run WeatherAlarm:
 
 5. Run the Application: Execute the application to send morning messages to users at 8 AM.
 ```
-  bash
-  Copy code
-  npm start
+  python3 app.py
 ```
 
 ## Usage
