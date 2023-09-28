@@ -6,6 +6,9 @@ import requests
 def get_clients():
     return Client.table("clients").select("*").execute().data
 
+def get_test_clients():
+    return Client.table("test_clients").select("*").execute().data
+
 def get_weather(latitude, longitude):
     base_url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m&daily=sunrise,sunset&timezone=America%2FLos_Angeles"
     response = requests.get(base_url)
