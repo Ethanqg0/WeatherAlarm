@@ -1,9 +1,6 @@
 from src.weatherAPI import *
 import schedule
 import time
-import dotenv
-
-dotenv.load_dotenv()
 
 # Production
 def main():
