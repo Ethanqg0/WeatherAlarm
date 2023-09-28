@@ -55,7 +55,7 @@ def send_weather_update(clients):
         aqi = find_max_aqi(aqi)
         aqi = str(aqi) + grade_aqi(aqi)
 
-        quote = get_quote()
+        quote = get_quote(client['category'])
             
         weather_info = {
             f"Good morning! :)\n\n"
