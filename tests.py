@@ -10,7 +10,7 @@ load_dotenv()
 
 @pytest.fixture(autouse=True) #autoamtically uses the fixture
 def load_environmental_variables(monkeypatch):
-    load_dotenv('.env.test')
+    load_dotenv('.env')
 
     # Set the environment variables for the tests
     monkeypatch.setenv('SUPABASE_URL', os.getenv('SUPABASE_URL'))
