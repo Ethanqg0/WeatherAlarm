@@ -12,6 +12,9 @@ def get_clients() -> list:
     """
     return Client.table("clients").select("*").execute().data
 
+def get_test_clients():
+  return Client.table("test_clients").select("*").execute().data
+  
 def get_weather(latitude: float, longitude: float) -> dict:
     """
     Retrieves weather data from the Open Meteo API for a given latitude and longitude.
@@ -108,7 +111,7 @@ def send_weather_update(clients: list) -> None:
         aqi = find_max_aqi(aqi)
         aqi = str(aqi) + grade_aqi(aqi)
 
-        quote = get_quote()
+        quote = get_quote(client['category'])
             
         weather_info = {
             f"Good morning! :)\n\n"
