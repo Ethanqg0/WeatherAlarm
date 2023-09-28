@@ -1,6 +1,8 @@
 # WeatherAlarm
 Welcome to the WeatherAlarm project! WeatherAlarm is a minimalistic and customizable weather notification system that sends users personalized morning messages at 8 AM. It provides weather information, air quality data for environmental awareness, and a motivational quote. WeatherAlarm fetches this information from external APIs and tailors it to each user's preferences.
 
+
+
 ## Features
 - **Personalized Messages:** WeatherAlarm addresses users by their name and delivers a customized morning message.
 
