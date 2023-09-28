@@ -9,9 +9,8 @@ def main():
         schedule.run_pending()
         time.sleep(1)
 
-# Instant testing
-#send_weather_update(get_clients())
-#test
+#Instant testing
+send_weather_update(get_test_clients())
 
 if __name__ == "__main__":
     main()

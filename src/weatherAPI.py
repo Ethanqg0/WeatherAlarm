@@ -77,17 +77,17 @@ def grade_aqi(aqi: int) -> str:
         str: A string representing the grade of the AQI value.
     """
     if aqi <= 50:
-        return "Good - Great!"
+        return "- Great!"
     elif aqi <= 100:
-        return "Moderate!"
+        return "- Moderate!"
     elif aqi <= 150:
-        return "Unhealthy for Sensitive Groups!"
+        return "- Unhealthy for Sensitive Groups!"
     elif aqi <= 200:
-        return "Unhealthy!"
+        return "- Unhealthy!"
     elif aqi <= 300:
-        return "Very Unhealthy!"
+        return "- Very Unhealthy!"
     else:
-        return "Hazardous!"
+        return "- Hazardous!"
 
 def send_weather_update(clients: list) -> None:
     """
