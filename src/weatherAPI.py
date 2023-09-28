@@ -72,6 +72,6 @@ def send_weather_update(clients):
             f"Air Quality: {aqi}\n\n"
             f"{quote}\n\n"
             f"Today is going to be a fantastic day. Make the best of it, {client['name']}!\n"
-            f"From, Ethan\n\n\n"
+            f"From, WeatherAlarm\n\n\n"
         }
     send_text_message(weather_info, client['number'])
