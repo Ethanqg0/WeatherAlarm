@@ -58,7 +58,12 @@ def find_max_aqi(data: dict) -> int:
         int: The maximum AQI value.
     """
     us_aqi = data["hourly"]["us_aqi"]
-    max_aqi = max(us_aqi, default=0)
+    max_aqi = us_aqi[0]
+    for aqi in us_aqi: 
+        if aqi is None:
+            continue
+        if aqi > max_aqi:
+            max_aqi = aqi
     return max_aqi
 
 def grade_aqi(aqi: int) -> str:

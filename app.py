@@ -10,9 +10,7 @@ def main():
         time.sleep(1)
 
 # Instant testing
-send_weather_update(get_test_clients())
+#send_weather_update(get_clients())
 
 if __name__ == "__main__":
     main()
-
-#test
