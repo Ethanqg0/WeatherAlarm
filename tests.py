@@ -14,7 +14,6 @@ def load_environmental_variables(monkeypatch):
 
     # Set the environment variables for the tests
     monkeypatch.setenv('SUPABASE_URL', os.getenv('SUPABASE_URL'))
-    monkeypatch.setenv('OTHER_VARIABLE', os.getenv('OTHER_VARIABLE'))
 
 def test_grade_aqi_good():
     result = grade_aqi(30)
