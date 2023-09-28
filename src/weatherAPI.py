@@ -3,34 +3,78 @@ from src.twilio import *
 from src.quotes import *
 import requests 
 
-def get_clients():
+def get_clients() -> list:
+    """
+    Retrieves a list of clients from the Supabase database.
+
+    Returns:
+        list: A list of dictionaries representing the clients.
+    """
     return Client.table("clients").select("*").execute().data
 
 def get_test_clients():
-    return Client.table("test_clients").select("*").execute().data
+  return Client.table("test_clients").select("*").execute().data
+  
+def get_weather(latitude: float, longitude: float) -> dict:
+    """
+    Retrieves weather data from the Open Meteo API for a given latitude and longitude.
 
-def get_weather(latitude, longitude):
+    Args:
+        latitude (float): The latitude of the location to retrieve weather data for.
+        longitude (float): The longitude of the location to retrieve weather data for.
+
+    Returns:
+        dict: A dictionary containing weather data for the specified location.
+    """
     base_url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&hourly=temperature_2m&daily=sunrise,sunset&timezone=America%2FLos_Angeles"
     response = requests.get(base_url)
     data = response.json()
     return data
 
-def fetch_air_quality_data(latitude, longitude):
+def fetch_air_quality_data(latitude: float, longitude: float) -> dict:
+    """
+    Retrieves air quality data from the Open Meteo API for a given latitude and longitude.
+
+    Args:
+        latitude (float): The latitude of the location to retrieve air quality data for.
+        longitude (float): The longitude of the location to retrieve air quality data for.
+
+    Returns:
+        dict: A dictionary containing air quality data for the specified location.
+    """
     base_url = f"https://air-quality-api.open-meteo.com/v1/air-quality?latitude={latitude}&longitude={longitude}&hourly=us_aqi&timezone=America%2FLos_Angeles"
     response = requests.get(base_url)
     data = response.json()
     return data
 
-def find_max_aqi(data):
+def find_max_aqi(data: dict) -> int:
+    """
+    Finds the maximum AQI value in the hourly US AQI data.
+
+    Args:
+        data (dict): A dictionary containing hourly US AQI data.
+
+    Returns:
+        int: The maximum AQI value.
+    """
     us_aqi = data["hourly"]["us_aqi"]
     max_aqi = us_aqi[0]
     for aqi in us_aqi: 
         if aqi > max_aqi:
             max_aqi = aqi
-    aqi = max_aqi
-    return aqi
+    return max_aqi
 
-def grade_aqi(aqi):
+
+def grade_aqi(aqi: int) -> str:
+    """
+    Assigns a grade to an AQI value.
+
+    Args:
+        aqi (int): The AQI value to grade.
+
+    Returns:
+        str: A string representing the grade of the AQI value.
+    """
     switch = {
         aqi <= 50: "- Great!",
         aqi <= 100: "- Moderate!",
@@ -41,7 +85,16 @@ def grade_aqi(aqi):
     }
     return switch[True]
 
-def send_weather_update(clients):
+def send_weather_update(clients: list) -> None:
+    """
+    Sends a weather update to a list of clients.
+
+    Args:
+        clients (list): A list of dictionaries representing the clients.
+
+    Returns:
+        None
+    """
     for client in clients:
         weather_data = get_weather(client['latitude'], client['longitude'])
 
