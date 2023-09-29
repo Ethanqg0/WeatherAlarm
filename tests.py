@@ -7,6 +7,8 @@ import os
 # Load environmental variables from .env file
 load_dotenv('.env')
 
+supabase_url = os.getenv("SUPABASE_URL")
+
 def test_grade_aqi_good():
     result = grade_aqi(30)
     assert result == "Good - Great!"
