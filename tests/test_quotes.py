@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import Mock, patch
-from ..src.quotes import get_quote
+from src.quotes import get_quote
 
 def test_get_quote():
     # Mock the requests.get method to control the API response

@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import Mock, patch
-from ..src.twilio import send_text_message
+from src.twilio import send_text_message
 
 # Replace 'your_module' with the actual module or file where your function is defined.
 #test
