@@ -2,6 +2,9 @@ from config.supabase_config import *
 from src.twilio import *
 from src.quotes import *
 import requests 
+import dotenv
+
+dotenv.load_dotenv()
 
 def get_clients() -> list:
     """
