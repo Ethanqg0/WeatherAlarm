@@ -1,3 +1,9 @@
+"""
+Twilio Module
+
+This module provides functions for sending text messages using the Twilio API.
+"""
+
 import os
 import dotenv
 from twilio.rest import Client as TwilioClient
@@ -22,7 +28,7 @@ def send_text_message(body: str, phone: str) -> None:
 
     twilio_client = TwilioClient(account_sid, auth_token)
 
-    message = twilio_client.messages.create(
+    twilio_client.messages.create(
         body=body,
         from_=from_phone_number,
         to=to_phone_number

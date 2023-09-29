@@ -1,5 +1,5 @@
 """
-quotes.py
+Quotes Module
 
 This module provides functions for retrieving random quotes from the Quotable API.
 """
