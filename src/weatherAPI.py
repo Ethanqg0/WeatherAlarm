@@ -1,6 +1,6 @@
 from config.supabase_config import *
 from services.twilio import *
-from services.quotes import *
+from quotes import *
 import requests 
 import dotenv
 

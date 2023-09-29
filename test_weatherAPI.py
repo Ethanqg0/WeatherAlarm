@@ -1,4 +1,4 @@
-from services.weatherAPI import grade_aqi, get_clients, get_test_clients, get_weather, fetch_air_quality_data, find_max_aqi
+from src.weatherAPI import grade_aqi, get_clients, get_test_clients, get_weather, fetch_air_quality_data, find_max_aqi
 from config.supabase_config import *
 import pytest
 
