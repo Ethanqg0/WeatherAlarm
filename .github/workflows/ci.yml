@@ -25,9 +25,9 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest pytest-cov
-        pytest tests/test_quotes.py tests/test_twilio.py tests/test_weather_api.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+        pytest tests/test_quotes.py tests/test_twilio.py tests/test_weather_API.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
     - name: Lint with pylint
       run: |
         pip install pylint
-        pylint app.py src/quotes.py src/twilio.py src/weather_api.py tests/test_quotes.py tests/test_twilio.py tests/test_weather_api.py 
+        pylint app.py src/quotes.py src/twilio.py src/weather_api.py tests/test_quotes.py tests/test_twilio.py tests/test_weather_API.py 
