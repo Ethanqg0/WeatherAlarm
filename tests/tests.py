@@ -1,3 +1,6 @@
+import sys
+sys.path.append("/Users/ethangutierrez/WeatherAlarm-2")
+
 from src.weatherAPI import grade_aqi
 from config.supabase_config import *
 from dotenv import load_dotenv
