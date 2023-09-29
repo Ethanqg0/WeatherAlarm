@@ -1,3 +1,9 @@
+"""
+quotes.py
+
+This module provides functions for retrieving random quotes from the Quotable API.
+"""
+
 import os
 import requests
 
@@ -12,15 +18,19 @@ def get_quote(category, timeout=10) -> str:
     Returns:
         str: A string containing the quote and author.
     """
-    api_url = f'https://api.api-ninjas.com/v1/quotes?category={category}'  
+    api_url = (
+    f'https://api.api-ninjas.com/v1/quotes?'
+    f'category={category}'
+    )
+
     
     try:
         response = requests.get(api_url, headers={'X-Api-Key': os.getenv('QUOTES_API_KEY') }, timeout=timeout)
-        response.raise_for_status()  # Raise an exception for HTTP errors
+        response.raise_for_status()
         data = response.json()
         print(data)
-        quote = f"{data[0]['quote']} - {data[0]['author']}"  # Use an f-string here
+        quote = f"{data[0]['quote']} - {data[0]['author']}"
         return quote
-    except requests.exceptions.RequestException as e:
-        print(f"HTTP request failed: {e}")
+    except requests.exceptions.RequestException as exception:
+        print(f"HTTP request failed: {exception}")
         return "Failed to retrieve a quote"
