@@ -1,21 +1,9 @@
 from src.weatherAPI import grade_aqi
 from config.supabase_config import *
-from dotenv import load_dotenv
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
-
-def load_env_vars() -> str:
-    """
-    Function to load and print environment variables
-    :return: String containing env vars
-    """
-    supabase_url = os.getenv("SUPABASE_URL")
-    supabase_key = os.getenv("SUPABASE_KEY")
-    return f"{supabase_url}{supabase_key}"
-
 
 def test_grade_aqi_good():
     result = grade_aqi(30)
