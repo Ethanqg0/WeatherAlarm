@@ -29,11 +29,13 @@ Functions provided:
 For more information on each function, refer to their respective docstrings.
 """
 
-from config.supabase_config import *
+from config.supabase_config import create_supabase_client
 from src.twilio import *
 from src.quotes import *
 import requests
 import dotenv
+
+Client = create_supabase_client()
 
 dotenv.load_dotenv()
 

@@ -1,4 +1,4 @@
-from src.weatherAPI import *
+from weather_api import *
 import schedule
 import time
 
