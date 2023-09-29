@@ -9,8 +9,8 @@ load_dotenv('.env')
 @pytest.fixture(autouse=True)
 def load_environmental_variables(monkeypatch):
     # Set the environment variables for the tests
-    monkeypatch.setenv('SUPABASE_URL', os.getenv('SUPABASE_URL'))
-    monkeypatch.setenv('SUPABASE_KEY', os.getenv('SUPABASE_KEY'))
+    monkeypatch.setenv('supabase_url', os.getenv('SUPABASE_URL'))
+    monkeypatch.setenv('supabase_key', os.getenv('SUPABASE_KEY'))
 
 def test_grade_aqi_good():
     result = grade_aqi(30)
