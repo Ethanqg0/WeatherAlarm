@@ -1,5 +1,5 @@
 from config.supabase_config import *
-from services.twilio import *
+from src.twilio import *
 from quotes import *
 import requests 
 import dotenv
