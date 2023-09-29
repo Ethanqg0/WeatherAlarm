@@ -30,8 +30,8 @@ For more information on each function, refer to their respective docstrings.
 """
 
 from config.supabase_config import create_supabase_client
-from src.twilio import *
-from src.quotes import *
+from src.twilio import send_text_message
+from src.quotes import get_quote
 import requests
 import dotenv
 
