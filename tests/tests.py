@@ -1,8 +1,6 @@
-from ..src.weatherAPI import grade_aqi
+from NewWeatherAlarm.src.weatherAPI import grade_aqi
 from config.supabase_config import *
 from dotenv import load_dotenv
-import os
-import pytest
 
 # Load environmental variables from .env
 load_dotenv()
