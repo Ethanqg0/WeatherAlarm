@@ -11,7 +11,7 @@ def test_send_text_message():
     mock_twilio_client.messages.create.return_value = Mock()
 
     # Patch the TwilioClient constructor to return the mock TwilioClient
-    with patch('your_module.TwilioClient', return_value=mock_twilio_client):
+    with patch('src.twilio.TwilioClient', return_value=mock_twilio_client):
         # Define test input
         test_body = "This is a test message."
         test_phone = "+1234567890"
