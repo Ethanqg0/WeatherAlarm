@@ -1,4 +1,4 @@
-from weather_api import grade_aqi, get_clients, get_test_clients, get_weather, fetch_air_quality_data, find_max_aqi
+from src.weather_api import grade_aqi, get_clients, get_test_clients, get_weather, fetch_air_quality_data, find_max_aqi
 import pytest
 
 @pytest.mark.parametrize("input_aqi, expected_grade", [
