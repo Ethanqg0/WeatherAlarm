@@ -1,19 +1,16 @@
-# Import your grade_aqi function at the beginning of your test file
-
 from src.weatherAPI import grade_aqi
 from dotenv import load_dotenv
-from config.supabase_config import *
 import pytest
 import os
 
-load_dotenv()
+# Load environmental variables from .env file
+load_dotenv('.env')
 
-@pytest.fixture(autouse=True) #autoamtically uses the fixture
+@pytest.fixture(autouse=True)
 def load_environmental_variables(monkeypatch):
-    load_dotenv('.env')
-
     # Set the environment variables for the tests
     monkeypatch.setenv('SUPABASE_URL', os.getenv('SUPABASE_URL'))
+    monkeypatch.setenv('SUPABASE_KEY', os.getenv('SUPABASE_KEY'))
 
 def test_grade_aqi_good():
     result = grade_aqi(30)
