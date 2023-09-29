@@ -29,11 +29,11 @@ Functions provided:
 For more information on each function, refer to their respective docstrings.
 """
 
+import requests
+import dotenv
 from config.supabase_config import create_supabase_client
 from src.twilio import send_text_message
 from src.quotes import get_quote
-import requests
-import dotenv
 
 Client = create_supabase_client()
 
@@ -49,9 +49,15 @@ def get_clients() -> list:
     return Client.table("clients").select("*").execute().data
 
 def get_test_clients():
+    """
+    Retrieves a list of test clients from the Supabase database for testing purposes
+
+    Returns:
+        list: A list of dictionaries representing the test clients.
+    """
     return Client.table("test_clients").select("*").execute().data
 
-def get_weather(latitude: float, longitude: float) -> dict:
+def get_weather(latitude: float, longitude: float, timeout=10) -> dict:
     """
     Retrieves weather data from the Open Meteo API for a given latitude and longitude.
 
@@ -69,11 +75,11 @@ def get_weather(latitude: float, longitude: float) -> dict:
     f"&timezone=America%2FLos_Angeles"
     )
 
-    response = requests.get(base_url)
+    response = requests.get(base_url, timeout=timeout)
     data = response.json()
     return data
 
-def fetch_air_quality_data(latitude: float, longitude: float) -> dict:
+def fetch_air_quality_data(latitude: float, longitude: float, timeout=10) -> dict:
     """
     Retrieves air quality data from the Open Meteo API for a given latitude and longitude.
 
@@ -89,7 +95,7 @@ def fetch_air_quality_data(latitude: float, longitude: float) -> dict:
     f"latitude={latitude}&longitude={longitude}"
     f"&hourly=us_aqi&timezone=America%2FLos_Angeles"
     )
-    response = requests.get(base_url)
+    response = requests.get(base_url, timeout=timeout)
     data = response.json()
     return data
 
@@ -124,16 +130,15 @@ def grade_aqi(aqi: int) -> str:
     """
     if aqi <= 50:
         return "- Great!"
-    elif aqi <= 100:
+    if aqi <= 100:
         return "- Moderate!"
-    elif aqi <= 150:
+    if aqi <= 150:
         return "- Unhealthy for Sensitive Groups!"
-    elif aqi <= 200:
+    if aqi <= 200:
         return "- Unhealthy!"
-    elif aqi <= 300:
+    if aqi <= 300:
         return "- Very Unhealthy!"
-    else:
-        return "- Hazardous!"
+    return "- Hazardous!"
 
 def send_weather_update(clients: list) -> None:
     """
@@ -145,6 +150,8 @@ def send_weather_update(clients: list) -> None:
     Returns:
         None
     """
+    weather_info_list = []  # Initialize a list to store weather info for each client
+
     for client in clients:
         weather_data = get_weather(client['latitude'], client['longitude'])
 
@@ -163,7 +170,8 @@ def send_weather_update(clients: list) -> None:
 
         quote = get_quote(client['category'])
 
-        weather_info = {
+        # Construct the message for the current client and append it to the list
+        weather_info = (
             f"Good morning! :)\n\n"
             f"Today's Weather in {client['city']}:\n"
             f"Current Temperature: {temperature_fahrenheit}°F\n"
@@ -174,5 +182,8 @@ def send_weather_update(clients: list) -> None:
             f"{quote}\n\n"
             f"Today is going to be a fantastic day. Make the best of it, {client['name']}!\n"
             f"From, WeatherAlarm\n\n\n"
-        }
-    send_text_message(weather_info, client['number'])
+        )
+        weather_info_list.append(weather_info)
+
+    for i, client in enumerate(clients):
+        send_text_message(weather_info_list[i], client['number'])
