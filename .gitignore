@@ -1,3 +1,5 @@
 # Ignore .env files
 *.env
-pytest.ini
+.pytest_cache
+assets/
+__pycache__/
