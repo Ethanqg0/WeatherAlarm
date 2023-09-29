@@ -1,10 +1,6 @@
 from src.weatherAPI import grade_aqi, get_clients, get_test_clients, get_weather, fetch_air_quality_data, find_max_aqi
 from config.supabase_config import *
-from dotenv import load_dotenv
 import pytest
-
-# Load environmental variables from .env
-load_dotenv()
 
 @pytest.mark.parametrize("input_aqi, expected_grade", [
     (30, "- Great!"),
