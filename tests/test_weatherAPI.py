@@ -2,13 +2,14 @@ from src.weatherAPI import grade_aqi
 from config.supabase_config import *
 from dotenv import load_dotenv
 import os
+import pytest
 
+# Load environmental variables from .env
 load_dotenv()
 
 url = "https://wonclqrwdjpiodpgwbgs.supabase.co"
 key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndvbmNscXJ3ZGpwaW9kcGd3YmdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ1NzI0OTAsImV4cCI6MjAxMDE0ODQ5MH0.fMJHVn5ECaWJA7pn18oPreKTCwtBS7g32N_M4NH55A8"
 supabase = create_client(url, key)
-
 
 
 def test_grade_aqi_good():
