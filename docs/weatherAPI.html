@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>weatherAPI module &#8212; Weather Alarm 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="twilio module" href="twilio.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-weatherAPI">
+<span id="weatherapi-module"></span><h1>weatherAPI module<a class="headerlink" href="#module-weatherAPI" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="weatherAPI.fetch_air_quality_data">
+<span class="sig-prename descclassname"><span class="pre">weatherAPI.</span></span><span class="sig-name descname"><span class="pre">fetch_air_quality_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#weatherAPI.fetch_air_quality_data" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves air quality data from the Open Meteo API for a given latitude and longitude.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>latitude (float): The latitude of the location to retrieve air quality data for.
+longitude (float): The longitude of the location to retrieve air quality data for.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing air quality data for the specified location.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weatherAPI.find_max_aqi">
+<span class="sig-prename descclassname"><span class="pre">weatherAPI.</span></span><span class="sig-name descname"><span class="pre">find_max_aqi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#weatherAPI.find_max_aqi" title="Link to this definition">¶</a></dt>
+<dd><p>Finds the maximum AQI value in the hourly US AQI data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data (dict): A dictionary containing hourly US AQI data.</p>
+</dd>
+<dt>Returns:</dt><dd><p>int: The maximum AQI value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weatherAPI.get_clients">
+<span class="sig-prename descclassname"><span class="pre">weatherAPI.</span></span><span class="sig-name descname"><span class="pre">get_clients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#weatherAPI.get_clients" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves a list of clients from the Supabase database.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>list: A list of dictionaries representing the clients.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weatherAPI.get_test_clients">
+<span class="sig-prename descclassname"><span class="pre">weatherAPI.</span></span><span class="sig-name descname"><span class="pre">get_test_clients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#weatherAPI.get_test_clients" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weatherAPI.get_weather">
+<span class="sig-prename descclassname"><span class="pre">weatherAPI.</span></span><span class="sig-name descname"><span class="pre">get_weather</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#weatherAPI.get_weather" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves weather data from the Open Meteo API for a given latitude and longitude.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>latitude (float): The latitude of the location to retrieve weather data for.
+longitude (float): The longitude of the location to retrieve weather data for.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing weather data for the specified location.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weatherAPI.grade_aqi">
+<span class="sig-prename descclassname"><span class="pre">weatherAPI.</span></span><span class="sig-name descname"><span class="pre">grade_aqi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aqi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#weatherAPI.grade_aqi" title="Link to this definition">¶</a></dt>
+<dd><p>Assigns a grade to an AQI value.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>aqi (int): The AQI value to grade.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: A string representing the grade of the AQI value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="weatherAPI.send_weather_update">
+<span class="sig-prename descclassname"><span class="pre">weatherAPI.</span></span><span class="sig-name descname"><span class="pre">send_weather_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clients</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#weatherAPI.send_weather_update" title="Link to this definition">¶</a></dt>
+<dd><p>Sends a weather update to a list of clients.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>clients (list): A list of dictionaries representing the clients.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Weather Alarm</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quotes.html">quotes module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twilio.html">twilio module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">weatherAPI module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#weatherAPI.fetch_air_quality_data"><code class="docutils literal notranslate"><span class="pre">fetch_air_quality_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weatherAPI.find_max_aqi"><code class="docutils literal notranslate"><span class="pre">find_max_aqi()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weatherAPI.get_clients"><code class="docutils literal notranslate"><span class="pre">get_clients()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weatherAPI.get_test_clients"><code class="docutils literal notranslate"><span class="pre">get_test_clients()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weatherAPI.get_weather"><code class="docutils literal notranslate"><span class="pre">get_weather()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weatherAPI.grade_aqi"><code class="docutils literal notranslate"><span class="pre">grade_aqi()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weatherAPI.send_weather_update"><code class="docutils literal notranslate"><span class="pre">send_weather_update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="twilio.html" title="previous chapter">twilio module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Ethan Gutierrez, Samin Amanat.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/weatherAPI.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
