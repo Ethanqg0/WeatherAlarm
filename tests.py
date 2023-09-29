@@ -1,4 +1,4 @@
-from NewWeatherAlarm.src.weatherAPI import grade_aqi
+from src.weatherAPI import grade_aqi
 from config.supabase_config import *
 from dotenv import load_dotenv
 
