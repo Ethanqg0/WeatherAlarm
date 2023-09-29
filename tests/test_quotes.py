@@ -8,6 +8,7 @@ based on the specified category.
 
 from unittest.mock import Mock, patch
 from src.quotes import get_quote
+from config.supabase_config import create_supabase_client
 
 def test_get_quote():
     """
