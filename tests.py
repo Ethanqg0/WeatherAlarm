@@ -1,25 +1,15 @@
 from src.weatherAPI import grade_aqi
 from config.supabase_config import *
+from dotenv import load_dotenv
 import os
 
-import pytest
-from dotenv import load_dotenv
+load_dotenv()
+
+url = os.getenv("SUPABASE_URL")
+key = os.getenv("SUPABASE_KEY")
+supabase = create_client(url, key)
 
 
-@pytest.fixture(scope='session', autouse=True)
-def load_env():
-    load_dotenv()
-
-
-@pytest.fixture(autouse=True)
-def test_client_db():
-    print(f"SUPABASE_URL"
-          f"={os.environ.get('SUPABASE_URL')}")
-    print(f"SUPAKEY={os.environ.get('SUPABASE_KEY')}")
-
-
-def test():
-    pass
 
 def test_grade_aqi_good():
     result = grade_aqi(30)
