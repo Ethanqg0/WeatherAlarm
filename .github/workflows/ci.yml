@@ -7,8 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      supabase_url: "https://wonclqrwdjpiodpgwbgs.supabase.co"
 
     steps:
     - uses: actions/checkout@v4
