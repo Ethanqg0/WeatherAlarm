@@ -23,9 +23,13 @@ def get_quote(category, timeout=10) -> str:
     f'category={category}'
     )
 
-    
+
     try:
-        response = requests.get(api_url, headers={'X-Api-Key': os.getenv('QUOTES_API_KEY') }, timeout=timeout)
+        response = requests.get(
+            api_url,
+            headers={'X-Api-Key': os.getenv('QUOTES_API_KEY')},
+            timeout=timeout
+        )
         response.raise_for_status()
         data = response.json()
         print(data)
