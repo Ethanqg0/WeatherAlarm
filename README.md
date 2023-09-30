@@ -28,9 +28,22 @@ Follow these steps to set up and run WeatherAlarm:
 4. **Customization:** Customize the messages, weather preferences, and motivational quotes based on user preferences.
 
 5. **Run the Application:** Execute the application to send morning messages to users at 8 AM.
-```
-  python3 app.py
-```
+  1. Create a virtual environment and run it
+  Linux/macOS:
+  ```
+  python -m venv venv
+  source venv/bin/activate
+  ```
+  Windows:
+  ```
+  python -m venv venv
+  .\venv\Scripts\Activate (powershell) or venv\Scripts\activate (command prompt)
+  ```
+
+  2. Install dependencies
+  ```
+  pip install -r requirements.txt
+  ```
 
 ## Usage
 WeatherAlarm is designed to be simple and user-friendly. Users will receive a personalized morning message at 8 AM containing weather information, air quality data, and a motivational quote. They can respond with specific preferences and receive tailored messages accordingly.
