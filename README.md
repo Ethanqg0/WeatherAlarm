@@ -18,7 +18,10 @@ Welcome to the WeatherAlarm project! WeatherAlarm is a minimalistic and customiz
 
 ## Getting Started
 
-Build the Docker image from your Dockerfile on your local machine.
+WeatherAlarm is open-source and highly encourages contributions! To pursue this, we containerized WeatherAlarm via Docker to ensure its portability and convenience! Here are the steps:
+
+Prerequisite:
+  Have Docker installed on your computer and running to activate its Daemon.
 
 #1: Pull the Pre-Built Docker Image
 To get started, you can pull the pre-built Docker image from the container registry (e.g., Docker Hub) using the following command:
@@ -36,9 +39,6 @@ After running the container, you can access the application as needed.
 
 ## Usage
 WeatherAlarm is designed to be simple and user-friendly. Users will receive a personalized morning message at 8 AM containing weather information, air quality data, and a motivational quote. They can respond with specific preferences and receive tailored messages accordingly.
-
-Contributing
-We welcome contributions from the community! Whether you're a developer, designer, or have ideas to enhance the project, your insights are valuable. Join our vibrant community by submitting pull requests, sharing ideas, and participating in discussions.
 
 ## Contact Us
 Have questions or need assistance? Reach out to our team at ethan@firewave.dev
