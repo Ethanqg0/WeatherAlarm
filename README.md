@@ -26,7 +26,7 @@ Prerequisite:
 #1: Pull the Pre-Built Docker Image
 To get started, you can pull the pre-built Docker image from the container registry (e.g., Docker Hub) using the following command:
 ```
-docker push ethanqg/weatheralarm:v1.0
+docker pull ethanqg/weatheralarm:v1.0
 ```
 
 #2:Run the Docker Container
