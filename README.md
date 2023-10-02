@@ -17,38 +17,22 @@ Welcome to the WeatherAlarm project! WeatherAlarm is a minimalistic and customiz
 - **Twilio Integration:** WeatherAlarm utilizes the Twilio messaging service to send SMS messages to users.
 
 ## Getting Started
-Follow these steps to set up and run WeatherAlarm:
 
-1. **Clone the Repository:** Begin by cloning this repository to your local machine using your preferred Git client.
+Build the Docker image from your Dockerfile on your local machine.
 
-2. **Install Dependencies:** Navigate to the cloned repository and install the necessary dependencies.
+#1: Pull the Pre-Built Docker Image
+To get started, you can pull the pre-built Docker image from the container registry (e.g., Docker Hub) using the following command:
+```
+docker push ethanqg/weatheralarm:v1.0
+```
 
-3. **Configuration:** Set up configuration files to specify API keys and user preferences. Ensure Twilio API credentials are properly configured.
+#2:Run the Docker Container
+```
+docker container run -d ethanqg/weatheralarm:v1.0
+```
 
-4. **Customization:** Customize the messages, weather preferences, and motivational quotes based on user preferences.
-
-5. **Run the Application:** Execute the application to send morning messages to users at 8 AM.
-  A. Create a virtual environment and run it
-  Linux/macOS:
-  ```
-  python -m venv venv
-  source venv/bin/activate
-  ```
-  Windows:
-  ```
-  python3 -m venv venv
-  .\venv\Scripts\Activate.ps1 (powershell) or venv\Scripts\activate.ps1 (command prompt)
-  ```
-
-  B. Install dependencies
-  ```
-  pip install -r requirements.txt
-  ```
-
-  C. Run app
-  ```
-  python app.py
-  ```
+Access the Application
+After running the container, you can access the application as needed.
 
 ## Usage
 WeatherAlarm is designed to be simple and user-friendly. Users will receive a personalized morning message at 8 AM containing weather information, air quality data, and a motivational quote. They can respond with specific preferences and receive tailored messages accordingly.
