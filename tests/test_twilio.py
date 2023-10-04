@@ -24,7 +24,7 @@ def test_send_text_message():
     with patch('src.twilio.TwilioClient', return_value=mock_twilio_client):
         # Define test input
         test_body = "This is a test message."
-        test_phone = "+1234567890"
+        test_phone = "+18333061864"
 
         # Call the function under test
         send_text_message(test_body, test_phone)
@@ -32,6 +32,6 @@ def test_send_text_message():
         # Assertions
         mock_twilio_client.messages.create.assert_called_with(
             body=test_body,
-            from_="+0123456789", # hidden for security purposes
+            from_="+", # hidden for security purposes
             to=test_phone
         )
