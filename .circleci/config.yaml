@@ -6,13 +6,13 @@ jobs:
       - image: cimg/python:3.11
     steps:
       - checkout
-      - run: python main.py
+      - run: python src/quotes.py src/twilio.py src/weather_api.py app.py
   test:
     docker:
       - image: cimg/python:3.11
     steps:
       - checkout
-      - run: python tests.py
+      - run: python src/quotes.py src/twilio.py src/weather_api.py app.py
   deploy:
     docker:
       - image: cimg/python:3.11
