@@ -5,7 +5,7 @@ This module schedules and sends daily weather updates to clients using a weather
 It defines a main function for production use and a test call for instant testing.
 
 Author:
-    Ethanqg0
+    Ethan Gutierrez - Ethanqg0
 """
 
 import time
