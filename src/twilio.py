@@ -21,8 +21,8 @@ def send_text_message(body: str, phone: str) -> None:
     Returns:
         None
     """
-    account_sid = "ACdfe74ca16e90ea5ecd2da2e5d9dd7321"
-    auth_token = "4108915ad6e06c048d1b25953497608a"
+    account_sid = os.getenv("TWILIO_ACCOUNT_SID")
+    auth_token = os.getenv("TWILIO_AUTH_TOKEN")
     from_phone_number = "+18333061864"
     to_phone_number = phone
 
