@@ -1,6 +1,7 @@
 from src.weatherAPI import *
 import schedule
 import time
+import dotenv
 
 def main():
     schedule.every().day.at("06:00").do(send_weather_update, get_clients())
@@ -8,7 +9,5 @@ def main():
         schedule.run_pending()
         time.sleep(1)
 
-if __name__ == "__main__":
-    main()
-
 #test
+send_weather_update(get_clients())
