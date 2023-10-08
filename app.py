@@ -32,6 +32,7 @@ def main():
 
 #Instant testing
 send_weather_update(get_test_clients())
+#test
 
 if __name__ == "__main__":
     main()
