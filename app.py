@@ -11,3 +11,4 @@ def main():
 
 #test
 send_weather_update(get_clients())
+#test
