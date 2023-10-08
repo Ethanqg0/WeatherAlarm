@@ -27,7 +27,7 @@ def get_quote(category, timeout=10) -> str:
     try:
         response = requests.get(
             api_url,
-            headers={'X-Api-Key': os.getenv('QUOTES_API_KEY')},
+            headers={'X-Api-Key': "5iCq5Q3SIOSGkgRKo4j/LQ==HHD4GpRJPAgHUq62"},
             timeout=timeout
         )
         response.raise_for_status()
